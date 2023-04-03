@@ -75,3 +75,9 @@ li {
 .search-input {
   text-align: center;
 }
+
+.dev-info {
+  background-color: #d4dedd;
+  padding: 7px;
+  border-radius: 10px;
+}
