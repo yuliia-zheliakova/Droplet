@@ -28,6 +28,13 @@ function getCurFullDate() {
   curDate.textContent = curFullDate;
 }
 
+// Changing icons with Shecodes API
+function changeIcon(response) {
+  let icon = document.querySelector("#weather-icon");
+  icon.setAttribute("src", response.data.condition.icon_url);
+  icon.setAttribute("alt", response.data.condition.icon);
+}
+
 // Display the weather
 function currentWeather(response) {
   let city = document.querySelector("#city-input");
@@ -42,10 +49,21 @@ function currentWeather(response) {
   weatherDescr.textContent = weatherMessage;
 
   let hum = document.querySelector("#humidity");
-  hum.textContent = `💧 ${response.data.main.humidity}%`;
+  hum.textContent = `☔️ ${response.data.main.humidity}%`;
 
   let wind = document.querySelector("#wind-speed");
-  wind.textContent = ` 🌬 ${response.data.wind.speed} km/h`;
+  wind.textContent = ` 💨 ${response.data.wind.speed} km/h`;
+
+  let icon = document.querySelector("#weather-icon");
+  icon.setAttribute(
+    "src",
+    `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  icon.setAttribute("alt", response.data.weather[0].description);
+
+  //let iconApiKey = "e10347bca54258b03todcf0244c0fb2a";
+  //let iconUrlApi = `https://api.shecodes.io/weather/v1/current?query=${response.data.name}&key=${iconApiKey}`;
+  //axios.get(iconUrlApi).then(changeIcon);
 
   getCurFullDate();
 }
