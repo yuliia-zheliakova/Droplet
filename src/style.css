@@ -1,3 +1,6 @@
 body {
   font-family: Papyrus, fantasy;
+  background-image: url("img/day.jpeg");
+  background-color: #d4dedd;
+  background-size: 1400px 781px;
 }
