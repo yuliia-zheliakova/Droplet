@@ -28,4 +28,56 @@ function getCurFullDate() {
   curDate.textContent = curFullDate;
 }
 
+// Display the weather
+function currentWeather(response) {
+  let city = document.querySelector("#city-input");
+  city.value = response.data.name;
+
+  let currentTemp = document.querySelector("#temperature");
+  let currentTempCel = response.data.main.temp;
+  currentTemp.textContent = `${Math.round(currentTempCel)}`;
+
+  let weatherDescr = document.querySelector("#weather-description");
+  let weatherMessage = `${response.data.weather[0].main.toLowerCase()}`;
+  weatherDescr.textContent = weatherMessage;
+
+  let hum = document.querySelector("#humidity");
+  hum.textContent = `💧 ${response.data.main.humidity}%`;
+
+  let wind = document.querySelector("#wind-speed");
+  wind.textContent = `🌬 ${response.data.wind.speed} km/h`;
+
+  getCurFullDate();
+}
+
+document.querySelector("#city-input").addEventListener("keydown", function (e) {
+  if (13 == e.keyCode) {
+    let searchInput = document.querySelector("#city-input");
+    let keyApi = "203fa770242fcd2b9555d832a88ea567";
+    let urlApi = `https://api.openweathermap.org/data/2.5/weather?q=${searchInput.value}&appid=${keyApi}&units=metric`;
+    axios.get(urlApi).then(currentWeather);
+  }
+});
+
+// Start with the date and location
 getCurFullDate();
+let keyApi = "203fa770242fcd2b9555d832a88ea567";
+let urlApi = `https://api.openweathermap.org/data/2.5/weather?q=Ramsdorf&appid=${keyApi}&units=metric`;
+axios.get(urlApi).then(currentWeather);
+
+//Reset to local weather
+function handlePosition(position) {
+  let lat = position.coords.latitude;
+  let lon = position.coords.longitude;
+
+  let keyApi = "b400ae3b711a616262d18b0ca2cbe78f";
+  let urlApi = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${keyApi}&units=metric`;
+  axios.get(urlApi).then(currentWeather);
+}
+
+function showCurCity() {
+  navigator.geolocation.getCurrentPosition(handlePosition);
+}
+
+let submitButton = document.querySelector("#submit-button");
+submitButton.addEventListener("click", showCurCity);

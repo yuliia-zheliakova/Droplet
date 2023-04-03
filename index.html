@@ -21,7 +21,11 @@
         <div class="weather-app">
           <div class="row">
             <div class="col-12">
-              <button type="button" class="btn btn-outline-info">
+              <button
+                type="button"
+                id="submit-button"
+                class="btn btn-outline-info"
+              >
                 📍 Current location
               </button>
             </div>
@@ -32,8 +36,8 @@
             <div class="col-12">
               <h5>
                 Right now in
-                <input type="text" id="city-input" placeholder="Ramsdorf" /> is
-                <p id="weather-description">sunny</p>
+                <input type="text" id="city-input" placeholder="Ramsdorf" />
+                <span id="weather-description"></span>
               </h5>
             </div>
           </div>
@@ -49,14 +53,16 @@
             </div>
             <div class="col-4">
               <ul>
-                <li><p id="temperature">16</p></li>
-                <li><a href="">°C </a>|<a href=""> °F</a></li>
+                <li id="temperature"></li>
+                <li>
+                  <a href="" id="cels">°C </a>|<a href="" id="far"> °F</a>
+                </li>
               </ul>
             </div>
-            <div class="col-4">
+            <div class="col-4 extra">
               <ul>
-                <li><p id="wind-speed">🌬</p></li>
-                <li p="humidity">💧</li>
+                <li id="wind-speed"></li>
+                <li id="humidity"></li>
               </ul>
             </div>
           </div>

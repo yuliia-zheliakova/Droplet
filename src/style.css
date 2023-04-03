@@ -69,7 +69,14 @@ li {
 
 #wind-speed,
 #humidity {
-  font-size: 35px;
+  font-size: 25px;
+  position: left;
+  padding: 4px;
+}
+
+.extra {
+  text-align: left;
+  padding: 15px;
 }
 
 .search-input {
