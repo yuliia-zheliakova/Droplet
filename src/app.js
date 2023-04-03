@@ -45,7 +45,7 @@ function currentWeather(response) {
   hum.textContent = `💧 ${response.data.main.humidity}%`;
 
   let wind = document.querySelector("#wind-speed");
-  wind.textContent = `🌬 ${response.data.wind.speed} km/h`;
+  wind.textContent = ` 🌬 ${response.data.wind.speed} km/h`;
 
   getCurFullDate();
 }
@@ -81,3 +81,36 @@ function showCurCity() {
 
 let submitButton = document.querySelector("#submit-button");
 submitButton.addEventListener("click", showCurCity);
+
+//Change the metrics
+let cels = document.querySelector("#celsius-link");
+let fahr = document.querySelector("#fahrenheit-link");
+
+function changeMetric(response) {
+  let currentTemp = document.querySelector("#temperature");
+  let currentTempDegree = response.data.main.temp;
+  currentTemp.textContent = `${Math.round(currentTempDegree)}`;
+}
+
+function toCels() {
+  let units = "metric";
+  let city = document.querySelector("#city-input");
+  let keyApi = "b400ae3b711a616262d18b0ca2cbe78f";
+  let urlApi = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&appid=${keyApi}&units=${units}`;
+  axios.get(urlApi).then(changeMetric);
+  /*let degree = document.querySelector("#temperature");
+        let comp = (Number(degree.textContent) - 32) / 1.8;
+        degree.textContent = Math.round(comp);*/
+}
+function toFahr() {
+  let units = "imperial";
+  let city = document.querySelector("#city-input");
+  let keyApi = "b400ae3b711a616262d18b0ca2cbe78f";
+  let urlApi = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&appid=${keyApi}&units=${units}`;
+  axios.get(urlApi).then(changeMetric);
+  /*let degree = document.querySelector("#temperature");
+        let comp = degree.textContent * 1.8 + 32;
+        degree.textContent = Math.round(comp);*/
+}
+fahr.addEventListener("click", toFahr);
+cels.addEventListener("click", toCels);
