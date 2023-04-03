@@ -1,17 +1,16 @@
 body {
-  font-family: Papyrus, fantasy;
   background-image: url("img/day.jpeg");
   background-color: #d4dedd;
   background-size: 1400px 781px;
 }
 
-a {
-  font-family: Papyrus, fantasy;
-}
-
 button {
   float: right;
   padding: 10px;
+}
+
+small {
+  font-family: Papyrus, fantasy;
 }
 
 h5 {
@@ -29,5 +28,24 @@ h5 {
   padding: 20px;
   background-color: white;
   border-radius: 10px;
-  opacity: 0.7;
+  opacity: 0.9;
+}
+
+#city-input {
+  display: inline-flex;
+  flex-wrap: nowrap;
+  box-sizing: border-box;
+  border: 2px solid grey;
+  border-radius: 5px;
+  font-size: 1em;
+  padding: 0.5em;
+  width: 150px;
+  min-width: 100px;
+  max-width: 500px;
+}
+
+#city-input:focus {
+  width: 200px;
+  min-width: 200px;
+  transition: all 1s ease;
 }
