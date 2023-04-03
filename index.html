@@ -18,17 +18,56 @@
     <div class="container">
       <div class="weather-app-wrapper">
         <div class="weather-app">
-          <button type="button" class="btn btn-outline-info">
-            📍 Current location
-          </button>
+          <div class="row">
+            <div class="col-12">
+              <button type="button" class="btn btn-outline-info">
+                📍 Current location
+              </button>
+            </div>
+          </div>
           <br />
           <br />
+          <div class="row search-input">
+            <div class="col-12">
+              <h5>
+                Right now in
+                <input type="text" id="city-input" placeholder="Ramsdorf" /> is
+                <p id="weather-description">sunny</p>
+              </h5>
+            </div>
+          </div>
           <br />
-          <h5>
-            Right now in
-            <input type="text" id="city-input" placeholder="Ramsdorf" /> is
-            sunny
-          </h5>
+          <div class="row">
+            <div class="col-4">
+              <img
+                id="weather-icon"
+                src="src/img/droplet.ico"
+                width="100px"
+                alt=""
+              />
+            </div>
+            <div class="col-4">
+              <ul>
+                <li><p id="temperature">16</p></li>
+                <li><a href="">°C </a>|<a href=""> °F</a></li>
+              </ul>
+            </div>
+            <div class="col-4">
+              <ul>
+                <li><p id="wind-speed">🌬</p></li>
+                <li p="humidity">💧</li>
+              </ul>
+            </div>
+          </div>
+          <br />
+          <div class="row">
+            <div class="col-12">
+              <small
+                >last updated on
+                <p id="date">Monday, 19:42</p></small
+              >
+            </div>
+          </div>
         </div>
         <small
           ><a
