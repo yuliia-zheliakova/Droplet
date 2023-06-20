@@ -1,7 +1,7 @@
 body {
   background-image: url("img/day.jpeg");
   background-color: #bed5d2;
-  background-size: 1400px 781px;
+  background-size: 1700px 1000px;
 }
 
 button {
@@ -25,10 +25,10 @@ li {
 }
 
 .weather-app-wrapper {
-  max-width: 700px;
+  max-width: 800px;
   margin: 0 auto;
   text-align: center;
-  padding: 10px;
+  padding: 50px;
 }
 
 .weather-app {
