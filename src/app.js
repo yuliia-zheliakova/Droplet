@@ -35,6 +35,33 @@ function changeIcon(response) {
   icon.setAttribute("alt", response.data.condition.icon);
 }
 
+// Display the weather forecast
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  let forecastHTML = `<div class="row">`;
+  let days = ["Tue", "Fri", "Sat", "Sun"];
+
+  days.forEach(function (day) {
+    forecastHTML += `
+              <div class="col-2">
+                <div class="weather-forecast-date">${day}</div>
+                <img
+                  src="https://openweathermap.org/img/wn/04d@2x.png"
+                  alt=""
+                />
+                <div class="weather-forecast-temp">
+                  <span class="weather-forecast-temp-max">18°</span>
+                  <span class="weather-forecast-temp-min">12°</span>
+                </div>
+              </div>
+  `;
+  });
+
+  forecastHTML += `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
 // Display the weather
 function currentWeather(response) {
   let city = document.querySelector("#city-input");
@@ -64,6 +91,8 @@ function currentWeather(response) {
   //let iconApiKey = "e10347bca54258b03todcf0244c0fb2a";
   //let iconUrlApi = `https://api.shecodes.io/weather/v1/current?query=${response.data.name}&key=${iconApiKey}`;
   //axios.get(iconUrlApi).then(changeIcon);
+
+  displayForecast();
 
   getCurFullDate();
 }
