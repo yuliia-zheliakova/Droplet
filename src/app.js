@@ -71,10 +71,10 @@ function displayForecast(response) {
                   alt=""
                 />
                 <div class="weather-forecast-temp">
-                  <span class="weather-forecast-temp-max">${Math.round(
+                  <span class="weather-forecast-temp-max" id="forecast-max">${Math.round(
                     forecastDay.temp.max
                   )}°</span>
-                  <span class="weather-forecast-temp-min">${Math.round(
+                  <span class="weather-forecast-temp-min" id="forecast-min">${Math.round(
                     forecastDay.temp.min
                   )}°</span>
                 </div>
@@ -100,7 +100,7 @@ function currentWeather(response) {
 
   let currentTemp = document.querySelector("#temperature");
   let currentTempCel = response.data.main.temp;
-  currentTemp.textContent = `${Math.round(currentTempCel)}`;
+  currentTemp.textContent = `${Math.round(currentTempCel)}°`;
 
   let weatherDescr = document.querySelector("#weather-description");
   let weatherMessage = `${response.data.weather[0].main.toLowerCase()}`;
@@ -159,7 +159,7 @@ let submitButton = document.querySelector("#submit-button");
 submitButton.addEventListener("click", showCurCity);
 
 //Change the metrics
-let cels = document.querySelector("#celsius-link");
+/*let cels = document.querySelector("#celsius-link");
 let fahr = document.querySelector("#fahrenheit-link");
 
 function changeMetric(response) {
@@ -174,19 +174,26 @@ function toCels() {
   let keyApi = "b400ae3b711a616262d18b0ca2cbe78f";
   let urlApi = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&appid=${keyApi}&units=${units}`;
   axios.get(urlApi).then(changeMetric);
+
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${keyApi}&units=${units}`;
+  axios.get(apiUrl).then(displayForecast);
   /*let degree = document.querySelector("#temperature");
         let comp = (Number(degree.textContent) - 32) / 1.8;
-        degree.textContent = Math.round(comp);*/
+        degree.textContent = Math.round(comp);
 }
+
 function toFahr() {
   let units = "imperial";
   let city = document.querySelector("#city-input");
   let keyApi = "b400ae3b711a616262d18b0ca2cbe78f";
   let urlApi = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&appid=${keyApi}&units=${units}`;
   axios.get(urlApi).then(changeMetric);
-  /*let degree = document.querySelector("#temperature");
+
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${keyApi}&units=${units}`;
+  axios.get(apiUrl).then(displayForecast);
+  let degree = document.querySelector("#temperature");
         let comp = degree.textContent * 1.8 + 32;
-        degree.textContent = Math.round(comp);*/
+        degree.textContent = Math.round(comp);
 }
 fahr.addEventListener("click", toFahr);
-cels.addEventListener("click", toCels);
+cels.addEventListener("click", toCels); */
