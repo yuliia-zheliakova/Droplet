@@ -1,7 +1,7 @@
 body {
   background-image: url("img/day.jpeg");
   background-color: #bed5d2;
-  background-size: 1700px 1000px;
+  background-size: 1700px 900px;
 }
 
 button {
@@ -25,19 +25,19 @@ li {
 }
 
 .weather-app-wrapper {
-  max-width: 950px;
+  max-width: 900px;
   margin: 0 auto;
   text-align: center;
-  padding: 50px;
+  padding: 40px;
 }
 
 .weather-app {
   font-family: Papyrus, fantasy;
-  margin-top: 20px;
-  padding: 30px;
+  margin-top: 10px;
+  padding: 27px;
   background-color: white;
   border-radius: 10px;
-  opacity: 0.93;
+  opacity: 0.96;
 }
 
 #city-input {
@@ -95,12 +95,12 @@ li {
 }
 
 .weather-forecast-date {
-  font-size: 18px;
+  font-size: 20px;
   opacity: 0.5;
 }
 
 .weather-forecast-temp {
-  font-size: 16px;
+  font-size: 18px;
 }
 
 .weather-forecast-temp-min {
